@@ -27,6 +27,8 @@ The Dixit Scoreboard Calculator is designed to replace the physical game board w
 - **Input Validation**: Score input handling with proper number parsing
 - **State Management**: React hooks for efficient game state management
 - **Responsive Layout**: Tailwind CSS for adaptive design across all devices
+- **Component Architecture**: Modular, reusable components for maintainability
+- **Custom Hooks**: Separated business logic for better code organization
 
 ## 🛠️ Technology Stack
 
@@ -120,24 +122,98 @@ The application is optimized for mobile devices with:
 ### Project Structure
 ```
 src/
+├── constants/
+│   └── gameConfig.js              # Game constants and configuration
+├── hooks/
+│   └── useGameState.js            # Custom hook for game state management
+├── utils/
+│   └── gameUtils.js               # Utility functions for positioning
 ├── components/
-│   └── DixitScoreCalculator.jsx  # Main game component
-├── App.jsx                       # Root application component
-├── main.jsx                      # Application entry point
-└── index.css                     # Global styles
+│   ├── DixitScoreCalculator.jsx   # Main component (orchestrator)
+│   ├── PlayerSetup.jsx            # Player setup screen
+│   ├── GameScreen.jsx             # Main game screen
+│   ├── ScoreGrid.jsx              # Score grid component
+│   ├── ScoreTable.jsx             # Score table component
+│   └── GameDialogs.jsx            # Winner and reset dialogs
+├── App.jsx                        # Root application component
+├── main.jsx                       # Application entry point
+└── index.css                      # Global styles
 ```
 
+### Architecture Overview
+
+#### **Component Architecture**
+- **Modular Design**: Each component has a single responsibility
+- **Reusable Components**: Components can be tested and maintained independently
+- **Clean Separation**: UI, logic, and state management are properly separated
+
+#### **State Management**
+- **Custom Hook**: `useGameState` manages all game state and logic
+- **Memoized Values**: Performance optimizations with `useMemo` and `useCallback`
+- **Centralized Logic**: All game operations are handled in one place
+
+#### **Constants & Configuration**
+- **Centralized Config**: All game settings in `gameConfig.js`
+- **Easy Maintenance**: Game rules and limits can be modified in one place
+- **Type Safety**: Clear structure for game configuration
+
+#### **Utility Functions**
+- **Positioning Logic**: Separated player positioning calculations
+- **Reusable Functions**: Common operations extracted for reuse
+- **Performance Optimized**: Memoized calculations for smooth gameplay
+
 ### Key Components
-- **DixitScoreCalculator**: Main game logic and UI
-- **Player Management**: Add/remove players, customize names/colors
-- **Score Tracking**: Round score input and total calculation
-- **Visual Scoreboard**: Interactive progress grid
-- **Game State**: Victory detection and game reset functionality
+
+#### **DixitScoreCalculator.jsx**
+- Main orchestrator component
+- Handles routing between setup and game screens
+- Manages background effects and layout
+
+#### **PlayerSetup.jsx**
+- Player configuration interface
+- Add/remove player functionality
+- Color and name customization
+
+#### **GameScreen.jsx**
+- Main game interface
+- Coordinates scoreboard, grid, and table components
+- Handles game flow and interactions
+
+#### **ScoreGrid.jsx**
+- Visual 30-point progress grid
+- Player marker positioning
+- Interactive grid cells
+
+#### **ScoreTable.jsx**
+- Score input interface
+- Player score history display
+- Submit scores functionality
+
+#### **GameDialogs.jsx**
+- Winner announcement dialog
+- Game reset confirmation
+- Consistent dialog styling
+
+### Code Quality Features
+
+#### **Performance Optimizations**
+- Memoized calculations for player positions
+- Optimized re-renders with `useCallback`
+- Efficient state updates
+
+#### **Accessibility**
+- ARIA labels for screen readers
+- Keyboard navigation support
+- Semantic HTML structure
+
+#### **Error Handling**
+- Input validation for scores
+- Graceful handling of edge cases
+- User-friendly error messages
 
 ## 🚧 Future Improvements
 
 ### Planned Enhancements
-- [ ] **Input Validation**: Prevent negative score inputs
 - [ ] **shadcn-ui Integration**: Replace Material-UI with shadcn-ui components
 - [ ] **Card Display**: Show Dixit cards during gameplay
 - [ ] **Score History**: Detailed round-by-round history
@@ -147,9 +223,10 @@ src/
 
 ### Technical Improvements
 - [ ] **TypeScript**: Add type safety
-- [ ] **Testing**: Unit and integration tests
-- [ ] **Performance**: Optimize for larger player counts
-- [ ] **Accessibility**: Improve screen reader support
+- [ ] **Testing**: Unit and integration tests for components
+- [ ] **Performance**: Further optimizations for larger player counts
+- [ ] **Accessibility**: Enhanced screen reader support
+- [ ] **PWA**: Progressive Web App features
 
 ## 📄 License
 
@@ -159,10 +236,17 @@ This project is open source and available under the [MIT License](LICENSE).
 
 Contributions are welcome! Please feel free to submit pull requests or open issues for bugs and feature requests.
 
+### Development Guidelines
+- Follow the established component architecture
+- Use the custom hooks for state management
+- Maintain separation of concerns
+- Add appropriate accessibility features
+- Include proper error handling
+
 ## 📞 Support
 
 For questions or support, please open an issue in the repository or contact the development team.
 
 ---
 
-**Note**: This application is designed to enhance the Dixit board game experience by providing a digital alternative to the physical scoreboard, making gameplay faster and more accurate.
+**Note**: This application is designed to enhance the Dixit board game experience by providing a digital alternative to the physical scoreboard, making gameplay faster and more accurate. The refactored architecture ensures maintainability and scalability for future enhancements.
