@@ -20,26 +20,26 @@ export default function GameScreen({
   return (
     <div>
       <div
-        className="flex justify-center cursor-pointer"
+        className="flex justify-center cursor-pointer group"
         onClick={onLogoClick}
         role="button"
         tabIndex={0}
         onKeyDown={(e) => e.key === 'Enter' && onLogoClick()}
         aria-label="Click to reset game"
       >
-        <img src={DixitLogo} alt="Dixit Logo" className="w-42" />
+        <img src={DixitLogo} alt="Dixit Logo" className="w-42 drop-shadow-lg transition-transform duration-300 group-hover:scale-105" />
       </div>
 
       {/* Scoreboard */}
-      <div className="border p-4 mb-4 rounded-lg shadow-lg bg-white">
-        <h1 className="text-2xl font-bold mb-2 text-center">
-          Dixit Scoreboard
+      <div className="border border-gray-200/50 p-4 mb-4 rounded-xl shadow-xl bg-white/95 backdrop-blur-sm">
+        <h1 className="text-2xl font-bold mb-3 text-center bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+          🏆 Dixit Scoreboard
         </h1>
         
         {/* Start Line */}
-        <div className="bg-gradient-to-r from-green-400 to-green-600 text-white border font-semibold text-xl mb-4 rounded-lg shadow-md">
-          <div className="flex items-center justify-center text-xl w-full font-bold pt-2">
-            Start Line
+        <div className="bg-gradient-to-r from-emerald-400 to-emerald-600 text-white border border-emerald-300 font-semibold text-xl mb-4 rounded-xl shadow-lg overflow-hidden">
+          <div className="flex items-center justify-center text-xl w-full font-bold pt-2 pb-1">
+            🚀 Start Line
           </div>
           <div className="relative w-full h-10 flex items-center justify-between">
             <div className="absolute w-full h-full flex items-center justify-between px-4">

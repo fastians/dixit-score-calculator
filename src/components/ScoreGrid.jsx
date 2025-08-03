@@ -2,11 +2,11 @@ import { GAME_CONFIG } from "../constants/gameConfig";
 
 export default function ScoreGrid({ players, gridPositions }) {
   return (
-    <div className="grid grid-cols-5 gap-2 p-4 bg-gray-50 rounded-lg shadow-inner">
+    <div className="grid grid-cols-5 gap-2 p-4 bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl shadow-inner border border-gray-200/50">
       {Array.from({ length: GAME_CONFIG.VICTORY_SCORE }, (_, i) => (
         <div
           key={i + 1}
-          className="relative max-w-[75px] h-[75px] flex items-center justify-center border bg-gray-200 hover:bg-gray-300 transition duration-200 ease-in-out rounded-lg shadow-md"
+          className="relative max-w-[75px] h-[75px] flex items-center justify-center border border-gray-300 bg-white hover:bg-gray-50 transition-all duration-200 ease-in-out rounded-lg shadow-sm hover:shadow-md hover:scale-105 font-medium text-gray-700"
         >
           {i + 1}
           {gridPositions
@@ -14,7 +14,7 @@ export default function ScoreGrid({ players, gridPositions }) {
             .map(({ player, topPosition, leftPosition }) => (
               <div
                 key={player.id}
-                className="absolute w-3 h-3 rounded-full shadow-lg border border-black/60"
+                className="absolute w-3 h-3 rounded-full shadow-lg border-2 border-white"
                 style={{
                   backgroundColor: player.color,
                   top: `${topPosition}%`,
