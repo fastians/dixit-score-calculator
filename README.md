@@ -49,7 +49,7 @@ The Dixit Scoreboard Calculator is designed to replace the physical game board w
 
 1. **Clone the repository**
    ```bash
-   git clone <repository_url>
+   git clone https://github.com/fastians/dixit-score-calculator.git
    cd dixit-score-calculator
    ```
 
@@ -211,22 +211,6 @@ src/
 - Graceful handling of edge cases
 - User-friendly error messages
 
-## 🚧 Future Improvements
-
-### Planned Enhancements
-- [ ] **shadcn-ui Integration**: Replace Material-UI with shadcn-ui components
-- [ ] **Card Display**: Show Dixit cards during gameplay
-- [ ] **Score History**: Detailed round-by-round history
-- [ ] **Game Statistics**: Player performance analytics
-- [ ] **Sound Effects**: Audio feedback for game events
-- [ ] **Local Storage**: Save game state for session persistence
-
-### Technical Improvements
-- [ ] **TypeScript**: Add type safety
-- [ ] **Testing**: Unit and integration tests for components
-- [ ] **Performance**: Further optimizations for larger player counts
-- [ ] **Accessibility**: Enhanced screen reader support
-- [ ] **PWA**: Progressive Web App features
 
 ## 📄 License
 
@@ -236,17 +220,4 @@ This project is open source and available under the [MIT License](LICENSE).
 
 Contributions are welcome! Please feel free to submit pull requests or open issues for bugs and feature requests.
 
-### Development Guidelines
-- Follow the established component architecture
-- Use the custom hooks for state management
-- Maintain separation of concerns
-- Add appropriate accessibility features
-- Include proper error handling
 
-## 📞 Support
-
-For questions or support, please open an issue in the repository or contact the development team.
-
----
-
-**Note**: This application is designed to enhance the Dixit board game experience by providing a digital alternative to the physical scoreboard, making gameplay faster and more accurate. The refactored architecture ensures maintainability and scalability for future enhancements.
